@@ -1,61 +1,47 @@
 <template>
-  <footer class="footer">
+  <footer>
     <div class="container">
       <div class="footer-content">
-        <div class="footer-section">
-          <h3 class="footer-title">LifeJourney</h3>
-          <p class="footer-description">
-            记录生活的每一个精彩瞬间，构建属于你的数字人生轨迹。
+        <div>
+          <div class="footer-logo">
+            ELENA<span class="text-accent">MORI</span>
+          </div>
+          <p class="footer-text">
+            Contemporary artist exploring the boundaries between reality and imagination through mixed media.
           </p>
           <div class="social-links">
-            <a href="#" class="social-link">📧</a>
-            <a href="#" class="social-link">🐙</a>
-            <a href="#" class="social-link">📱</a>
+            <a href="#" aria-label="Instagram">📷</a>
+            <a href="#" aria-label="Twitter">🐦</a>
+            <a href="#" aria-label="Facebook">📘</a>
+            <a href="#" aria-label="Pinterest">📌</a>
           </div>
         </div>
         
-        <div class="footer-section">
-          <h4 class="footer-subtitle">功能模块</h4>
-          <ul class="footer-links">
-            <li><router-link to="/timeline">时间线</router-link></li>
-            <li><router-link to="/articles">文章随想</router-link></li>
-            <li><router-link to="/gallery">相册影集</router-link></li>
-            <li><router-link to="/goals">愿望清单</router-link></li>
-          </ul>
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#work">Portfolio</a>
+            <a href="#exhibitions">Exhibitions</a>
+            <a href="#contact">Contact</a>
+          </div>
         </div>
         
-        <div class="footer-section">
-          <h4 class="footer-subtitle">关于项目</h4>
-          <ul class="footer-links">
-            <li><a href="#">项目介绍</a></li>
-            <li><a href="#">技术栈</a></li>
-            <li><a href="#">开源协议</a></li>
-            <li><a href="#">贡献指南</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-section">
-          <h4 class="footer-subtitle">联系方式</h4>
-          <ul class="footer-links">
-            <li><a href="#">意见反馈</a></li>
-            <li><a href="#">问题报告</a></li>
-            <li><a href="#">功能建议</a></li>
-            <li><a href="#">技术支持</a></li>
-          </ul>
+        <div>
+          <h4 class="footer-heading">Resources</h4>
+          <div class="footer-links">
+            <a href="#">Artist Statement</a>
+            <a href="#">Press Kit</a>
+            <a href="#">FAQs</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
         </div>
       </div>
       
       <div class="footer-bottom">
-        <div class="footer-bottom-content">
-          <p class="copyright">
-            © 2024 LifeJourney. Made with ❤️ for personal growth.
-          </p>
-          <div class="footer-bottom-links">
-            <a href="#">隐私政策</a>
-            <a href="#">使用条款</a>
-            <a href="#">Cookie设置</a>
-          </div>
-        </div>
+        <p>&copy; 2023 Elena Mori. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -66,132 +52,101 @@
 </script>
 
 <style scoped>
-.footer {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+footer {
+  background-color: #121212;
   color: white;
+  padding: 3rem 0;
   margin-top: auto;
 }
 
 .footer-content {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 40px;
-  padding: 60px 0 40px;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
 }
 
-.footer-section h3,
-.footer-section h4 {
-  margin-bottom: 20px;
+@media (min-width: 768px) {
+  .footer-content {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
 }
 
-.footer-title {
+.footer-logo {
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 900;
+  margin-bottom: 1rem;
 }
 
-.footer-subtitle {
-  font-size: 1.1rem;
-  font-weight: 600;
-  opacity: 0.9;
-}
-
-.footer-description {
-  opacity: 0.8;
-  line-height: 1.6;
-  margin-bottom: 24px;
+.footer-text {
+  color: #aaa;
+  margin-bottom: 1.5rem;
+  max-width: 400px;
 }
 
 .social-links {
   display: flex;
-  gap: 16px;
+  gap: 1rem;
 }
 
-.social-link {
+.social-links a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: rgba(255, 255, 255, 0.1);
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
-  text-decoration: none;
-  font-size: 1.2rem;
+  background-color: #222;
+  color: #aaa;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
-.social-link:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
+.social-links a:hover {
+  background-color: #D4AF37;
+  color: white;
+}
+
+.footer-heading {
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
 }
 
 .footer-links {
-  list-style: none;
-}
-
-.footer-links li {
-  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .footer-links a {
-  color: rgba(255, 255, 255, 0.8);
+  color: #aaa;
+  transition: color 0.3s ease;
   text-decoration: none;
-  transition: all 0.3s ease;
 }
 
 .footer-links a:hover {
-  color: white;
-  padding-left: 8px;
+  color: #D4AF37;
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 24px 0;
+  padding-top: 2rem;
+  border-top: 1px solid #222;
+  text-align: center;
+  color: #666;
+  font-size: 0.875rem;
 }
 
-.footer-bottom-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-.copyright {
-  opacity: 0.8;
-  margin: 0;
-}
-
-.footer-bottom-links {
-  display: flex;
-  gap: 24px;
-}
-
-.footer-bottom-links a {
-  color: rgba(255, 255, 255, 0.8);
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-}
-
-.footer-bottom-links a:hover {
-  color: white;
-}
-
-@media (max-width: 768px) {
-  .footer-content {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    padding: 40px 0 30px;
-  }
-  
-  .footer-bottom-content {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .footer-bottom-links {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+.text-accent {
+  color: #D4AF37; /* 金色作为强调色 */
 }
 </style>

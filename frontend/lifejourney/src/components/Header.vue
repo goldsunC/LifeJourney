@@ -1,36 +1,35 @@
 <template>
-  <header class="header">
-    <nav class="nav">
-      <div class="container">
-        <div class="nav-content">
-          <div class="logo">
-            <router-link to="/" class="logo-link">
-              <div class="logo-icon">📖</div>
-              <span class="logo-text">LifeJourney</span>
-            </router-link>
-          </div>
-          
-          <div class="nav-menu" :class="{ active: isMenuOpen }">
-            <router-link to="/" class="nav-link" @click="closeMenu">首页</router-link>
-            <router-link to="/timeline" class="nav-link" @click="closeMenu">时间线</router-link>
-            <router-link to="/articles" class="nav-link" @click="closeMenu">文章</router-link>
-            <router-link to="/gallery" class="nav-link" @click="closeMenu">相册</router-link>
-            <router-link to="/goals" class="nav-link" @click="closeMenu">愿望清单</router-link>
-          </div>
-          
-          <div class="nav-actions">
-            <button class="btn btn-secondary" @click="toggleTheme">
-              {{ isDark ? '☀️' : '🌙' }}
-            </button>
-            <button class="menu-toggle" @click="toggleMenu" :class="{ active: isMenuOpen }">
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
-          </div>
-        </div>
+  <header id="navbar">
+    <div class="container">
+      <div class="flex justify-between items-center">
+        <a href="#home" class="logo">
+          ELENA<span class="text-accent">MORI</span>
+        </a>
+        
+        <!-- 桌面端导航 -->
+        <nav class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#work">Work</a>
+          <a href="#exhibitions">Exhibitions</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        
+        <!-- 移动端菜单按钮 -->
+        <button id="menu-toggle" class="menu-toggle">
+          ☰
+        </button>
       </div>
-    </nav>
+      
+      <!-- 移动端导航菜单 -->
+      <div id="mobile-menu">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#exhibitions">Exhibitions</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
   </header>
 </template>
 
@@ -38,188 +37,175 @@
 import { ref, onMounted } from 'vue'
 
 const isMenuOpen = ref(false)
-const isDark = ref(false)
 
-// 定义emits
-const emit = defineEmits(['theme-change'])
-
-// 从localStorage加载主题状态
 onMounted(() => {
-  const savedTheme = localStorage.getItem('theme')
-  if (savedTheme) {
-    isDark.value = savedTheme === 'dark'
+  // 移动端菜单切换
+  const menuToggle = document.getElementById('menu-toggle')
+  const mobileMenu = document.getElementById('mobile-menu')
+  
+  menuToggle.addEventListener('click', () => {
+    isMenuOpen.value = !isMenuOpen.value
+    mobileMenu.classList.toggle('active')
+    menuToggle.innerHTML = isMenuOpen.value ? '✕' : '☰'
+  })
+  
+  // 导航栏滚动效果
+  const navbar = document.getElementById('navbar')
+  
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add('nav-scrolled')
+    } else {
+      navbar.classList.remove('nav-scrolled')
+    }
+  }
+  
+  window.addEventListener('scroll', handleScroll)
+  
+  // 清理事件监听器
+  return () => {
+    window.removeEventListener('scroll', handleScroll)
   }
 })
-
-const toggleMenu = () => {
-  isMenuOpen.value = !isMenuOpen.value
-}
-
-const closeMenu = () => {
-  isMenuOpen.value = false
-}
-
-const toggleTheme = () => {
-  isDark.value = !isDark.value
-  // 发出主题变更事件
-  emit('theme-change', isDark.value)
-}
 </script>
 
 <style scoped>
-.header {
+/* 导航栏样式 */
+#navbar {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  z-index: 1000;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  color: white;
+  width: 100%;
+  padding: 1.5rem 0;
+  z-index: 50;
+  transition: background-color 0.3s ease, padding 0.3s ease;
+  background-color: transparent;
 }
 
-.nav {
-  padding: 0;
+#navbar.nav-scrolled {
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  padding: 1rem 0;
 }
 
-.nav-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 85px;
-}
-
-.logo-link {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  color: white;
-  font-weight: 700;
+.logo {
   font-size: 1.5rem;
-}
-
-.logo-icon {
-  font-size: 2rem;
-}
-
-.logo-text {
+  font-weight: 900;
+  letter-spacing: -0.02em;
   color: white;
 }
 
-.nav-menu {
+#navbar.nav-scrolled .logo {
+  color: #121212;
+}
+
+.nav-links {
   display: flex;
-  align-items: center;
-  gap: 32px;
-  margin-right: 20px;
+  gap: 2.5rem;
 }
 
-.nav-link {
-  text-decoration: none;
-  color: white;
+.nav-links a {
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 0.875rem;
   font-weight: 500;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.nav-link:hover,
-.nav-link.router-link-active {
   color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.nav-link.router-link-active::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 1px;
+.nav-links a:hover {
+  color: #D4AF37;
 }
 
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+#navbar.nav-scrolled .nav-links a {
+  color: #121212;
 }
 
 .menu-toggle {
   display: none;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 24px;
-  height: 24px;
-  background: transparent;
+  font-size: 1.5rem;
+  background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
+  color: white;
 }
 
-.menu-toggle span {
+#navbar.nav-scrolled .menu-toggle {
+  color: #121212;
+}
+
+#mobile-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
   width: 100%;
-  height: 2px;
-  background: white;
-  transition: all 0.3s ease;
-  transform-origin: center;
-}
-
-.menu-toggle.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.menu-toggle.active span:nth-child(2) {
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 1.5rem 0;
+  transform: translateY(-20px);
   opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
 }
 
-.menu-toggle.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -6px);
+#mobile-menu.active {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 
+#mobile-menu a {
+  display: block;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 0.875rem;
+  color: #121212;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#mobile-menu a:hover {
+  color: #D4AF37;
+}
+
+#mobile-menu a:last-child {
+  border-bottom: none;
+}
+
+/* 响应式设计 */
 @media (max-width: 768px) {
-  .nav-menu {
-    position: fixed;
-    top: 85px;
-    left: 0;
-    right: 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    flex-direction: column;
-    padding: 20px;
-    gap: 20px;
-    transform: translateY(-100%);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  .nav-menu.active {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
+  .nav-links {
+    display: none;
   }
   
   .menu-toggle {
-    display: flex;
+    display: block;
   }
-  
-  .nav-actions .btn {
-    padding: 8px 12px;
-    font-size: 14px;
-  }
-  
-  /* Header specific button styles */
-  .nav-actions .btn-secondary {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-  }
-  
-  .nav-actions .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-  }
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.text-accent {
+  color: #D4AF37; /* 金色作为强调色 */
 }
 </style>
