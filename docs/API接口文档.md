@@ -96,16 +96,17 @@ POST /auth/register
 {
     "success": true,
     "data": {
-        "user": {
+        "accessToken": "jwt_access_token",
+        "refreshToken": "jwt_refresh_token",
+        "tokenType": "Bearer",
+        "expiresAt": "2025-10-02T10:00:00Z",
+        "userInfo": {
             "id": 1,
             "username": "john_doe",
             "email": "john@example.com",
             "displayName": "John Doe",
-            "createdAt": "2025-10-01T10:00:00Z"
-        },
-        "tokens": {
-            "accessToken": "jwt_token",
-            "refreshToken": "refresh_token"
+            "avatarUrl": null,
+            "bio": null
         }
     },
     "message": "注册成功",
@@ -121,7 +122,7 @@ POST /auth/login
 **请求体:**
 ```json
 {
-    "email": "john@example.com",
+    "username": "john_doe",
     "password": "password123"
 }
 ```
@@ -131,15 +132,17 @@ POST /auth/login
 {
     "success": true,
     "data": {
-        "user": {
+        "accessToken": "jwt_access_token",
+        "refreshToken": "jwt_refresh_token",
+        "tokenType": "Bearer",
+        "expiresAt": "2025-10-02T10:00:00Z",
+        "userInfo": {
             "id": 1,
             "username": "john_doe",
             "email": "john@example.com",
-            "displayName": "John Doe"
-        },
-        "tokens": {
-            "accessToken": "jwt_token",
-            "refreshToken": "refresh_token"
+            "displayName": "John Doe",
+            "avatarUrl": "https://example.com/avatar.jpg",
+            "bio": "这是我的个人简介"
         }
     },
     "message": "登录成功",
@@ -155,7 +158,30 @@ POST /auth/refresh
 **请求体:**
 ```json
 {
-    "refreshToken": "refresh_token"
+    "refreshToken": "jwt_refresh_token"
+}
+```
+
+**响应:**
+```json
+{
+    "success": true,
+    "data": {
+        "accessToken": "new_jwt_access_token",
+        "refreshToken": "jwt_refresh_token",
+        "tokenType": "Bearer",
+        "expiresAt": "2025-10-02T10:00:00Z",
+        "userInfo": {
+            "id": 1,
+            "username": "john_doe",
+            "email": "john@example.com",
+            "displayName": "John Doe",
+            "avatarUrl": "https://example.com/avatar.jpg",
+            "bio": "这是我的个人简介"
+        }
+    },
+    "message": "Token刷新成功",
+    "timestamp": "2025-10-01T10:00:00Z"
 }
 ```
 
@@ -805,8 +831,13 @@ GET /search
 
 | 错误码 | 说明 | 解决方案 |
 |--------|------|----------|
+| `USERNAME_ALREADY_EXISTS` | 用户名已存在 | 更换其他用户名 |
+| `EMAIL_ALREADY_EXISTS` | 邮箱已存在 | 更换其他邮箱 |
+| `USER_REGISTER_FAIL` | 用户注册失败 | 稍后重试或联系技术支持 |
+| `USER_NOT_FOUND` | 用户不存在 | 检查用户名是否正确 |
+| `AUTHENTICATION_FAILED` | 认证失败 | 检查用户名和密码是否正确 |
+| `AUTH_TOKEN_INVALID` | Token无效 | 重新登录获取新Token |
 | `VALIDATION_ERROR` | 请求参数验证失败 | 检查请求参数格式 |
-| `AUTHENTICATION_ERROR` | 认证失败 | 检查Token是否有效 |
 | `AUTHORIZATION_ERROR` | 权限不足 | 检查用户权限 |
 | `RESOURCE_NOT_FOUND` | 资源不存在 | 检查资源ID是否正确 |
 | `DUPLICATE_RESOURCE` | 资源已存在 | 检查是否重复创建 |
