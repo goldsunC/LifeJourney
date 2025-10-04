@@ -3,16 +3,16 @@
     <div class="container">
       <div class="flex justify-between items-center">
         <a href="#home" class="logo">
-          ELENA<span class="text-accent">MORI</span>
+          LIFE<span class="text-accent">JOURNEY</span>
         </a>
         
         <!-- 桌面端导航 -->
         <nav class="nav-links">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#work">Work</a>
-          <a href="#exhibitions">Exhibitions</a>
-          <a href="#contact">Contact</a>
+          <a href="#HOME">HOME</a>
+          <a href="#TIMELINE">TIMELINE</a>
+          <a href="#PHOTOALBUM">PHOTOALBUM</a>
+          <a href="#WISHLIST">WISHLIST</a>
+          <a href="#ABOUT">ABOUT</a>
         </nav>
         
         <!-- 移动端菜单按钮 -->
@@ -23,11 +23,11 @@
       
       <!-- 移动端导航菜单 -->
       <div id="mobile-menu">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#work">Work</a>
-        <a href="#exhibitions">Exhibitions</a>
-        <a href="#contact">Contact</a>
+        <a href="#HOME">HOME</a>
+        <a href="#TIMELINE">TIMELINE</a>
+        <a href="#PHOTOALBUM">PHOTOALBUM</a>
+        <a href="#WISHLIST">WISHLIST</a>
+        <a href="#ABOUT">ABOUT</a>
       </div>
     </div>
   </header>

@@ -4,10 +4,10 @@
       <div class="footer-content">
         <div>
           <div class="footer-logo">
-            ELENA<span class="text-accent">MORI</span>
+            LIFE<span class="text-accent">JOURNEY</span>
           </div>
           <p class="footer-text">
-            Contemporary artist exploring the boundaries between reality and imagination through mixed media.
+            LifeJourney，记录你的生命旅程，分享成长的点滴！
           </p>
           <div class="social-links">
             <a href="#" aria-label="Instagram">📷</a>
@@ -20,11 +20,11 @@
         <div>
           <h4 class="footer-heading">Quick Links</h4>
           <div class="footer-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#work">Portfolio</a>
-            <a href="#exhibitions">Exhibitions</a>
-            <a href="#contact">Contact</a>
+            <a href="#HOME">HOME</a>
+            <a href="#TIMELINE">TIMELINE</a>
+            <a href="#PHOTOALBUM">PHOTOALBUM</a>
+            <a href="#WISHLIST">WISHLIST</a>
+            <a href="#ABOUT">ABOUT</a>
           </div>
         </div>
         

@@ -3,20 +3,20 @@
     <!-- 英雄区 -->
     <section id="home">
       <div class="hero-bg">
-        <img src="https://picsum.photos/id/1074/1920/1080" alt="Elena Mori's artwork">
+        <img src="http://120.26.34.235:9000/lifejourney/2025/10/ab313ee3-8b1c-4aaa-8ae9-30b670ccdb98.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=kangning666%2F20251004%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251004T181852Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=c256cd10823c99926e40d0b83f92a287d576a181a38680f53949433c3523a9af" alt="Elena Mori's artwork">
         <div class="hero-overlay"></div>
       </div>
       
       <div class="hero-content container">
         <h1 class="hero-title">
-          Transforming <br>
-          <span class="text-accent">Perception</span> Through Art
+          Sharing <br>
+          bits of your <span class="text-accent">LifeJourney</span>
         </h1>
         <p class="hero-subtitle max-w-2xl mx-auto">
-          Contemporary artist exploring the boundaries between reality and imagination through mixed media
+          A personal life journey recording and showcasing platform
         </p>
         <div class="hero-buttons">
-          <a href="#work" class="btn btn-primary">View Portfolio</a>
+          <a href="#work" class="btn btn-primary">My LifeJourney</a>
           <a href="#about" class="btn btn-secondary">About Me</a>
         </div>
       </div>
