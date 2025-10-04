@@ -1,0 +1,87 @@
+# LifeJourney Application Configuration
+spring:
+  application:
+    name: lifejourney
+  profiles:
+    active: dev
+    include: private  # 包含隐私配置文件
+  
+  # 数据库配置
+  datasource:
+    url: jdbc:mysql://${servers.address}:3306/lifejourney?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    # 密码从application-private.yml加载
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    
+  # JPA配置
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+        
+  # Redis配置
+  data:
+    redis:
+      host: ${servers.address}
+      port: 6379
+      # 密码从application-private.yml加载
+      database: 0
+      timeout: 2000ms
+      lettuce:
+        pool:
+          max-active: 8
+          max-wait: -1ms
+          max-idle: 8
+          min-idle: 0
+
+# MyBatis-Plus配置
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  mapper-locations: classpath*:mapper/*.xml
+
+# 服务器配置
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+# 日志配置
+logging:
+  level:
+    org.kangning.lifejourney: debug
+    org.springframework.security: debug
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+# JWT配置
+jwt:
+  # 密钥从application-private.yml加载
+  expiration: 86400000 # 24小时
+  # 刷新密钥从application-private.yml加载
+  refresh-expiration: 604800000 # 7天
+
+# 文件上传配置
+file:
+  upload:
+    path: ./uploads  # 需要根据实际部署环境调整文件存储路径
+    max-size: 10MB
+    allowed-types: image/jpeg,image/png,image/gif,image/webp
+
+# MinIO配置
+minio:
+  endpoint: http://${servers.address}:9000
+  # 访问密钥从application-private.yml加载
+  # 密钥从application-private.yml加载
+  bucket-name: lifejourney
