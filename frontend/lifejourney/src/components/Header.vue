@@ -10,7 +10,7 @@
         <nav class="nav-links">
           <router-link to="/" class="nav-link">HOME</router-link>
           <router-link to="/timeline" class="nav-link">TIMELINE</router-link>
-          <a href="#PHOTOALBUM" class="nav-link">PHOTOALBUM</a>
+          <router-link to="/photoalbum" class="nav-link">PHOTOALBUM</router-link>
           <a href="#WISHLIST" class="nav-link">WISHLIST</a>
           <router-link to="/about" class="nav-link">ABOUT</router-link>
         </nav>
@@ -25,7 +25,7 @@
         <div id="mobile-menu">
           <router-link to="/" class="nav-link">HOME</router-link>
           <router-link to="/timeline" class="nav-link">TIMELINE</router-link>
-          <a href="#PHOTOALBUM" class="nav-link">PHOTOALBUM</a>
+          <router-link to="/photoalbum" class="nav-link">PHOTOALBUM</router-link>
           <a href="#WISHLIST" class="nav-link">WISHLIST</a>
           <router-link to="/about" class="nav-link">ABOUT</router-link>
         </div>

@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Timeline from '../views/Timeline.vue'
+import Photoalbum from '../views/Photoalbum.vue'
 
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     path: '/timeline',
     name: 'Timeline',
     component: Timeline
+  },
+  {
+    path: '/photoalbum',
+    name: 'Photoalbum',
+    component: Photoalbum
   }
 ]
 

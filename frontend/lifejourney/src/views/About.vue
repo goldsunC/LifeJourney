@@ -1,61 +1,90 @@
 <template>
-  <div class="about">
-   
-    <!-- 个人介绍区域 -->
-    <section class="about-content">
+  <div class="about-page">
+    <!-- 页面标题区域 -->
+    <section class="page-header">
       <div class="container">
-        <div class="about-profile">
-          <div class="about-image">
-            <div class="profile-pic-container">
+        <h1 class="page-title fade-in">关于我</h1>
+      </div>
+    </section>
+
+    <!-- 个人介绍区域 -->
+    <section class="section about-section">
+      <div class="container">
+        <div class="about-content max-w-5xl mx-auto">
+          <!-- 个人资料卡片 -->
+          <div class="about-profile fade-in">
+            <div class="profile-image">
               <img 
                 src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
                 alt="Personal Photo" 
                 class="profile-pic"
               >
             </div>
+            <div class="profile-bio">
+              <h4 class="text-2xl font-bold mb-4">你好，我是 <span class="text-accent">辰華昭昭</span></h4>
+              <p class="text-gray-700 mb-4">
+                欢迎来到我的 LifeJourney 个人主页！我是一位热爱生活、喜欢旅行和摄影的创作者。
+                我创建这个平台是为了记录生活中的美好瞬间，分享我的成长历程和心得体会。
+              </p>
+              <p class="text-gray-700">
+                我相信每个人的生命都是一段独特的旅程，值得被记录和珍视。通过这个平台，
+                我希望能够连接更多志同道合的朋友，一起分享生活中的点滴感悟。
+              </p>
+            </div>
           </div>
-          <div class="about-bio">
-              <h2>你好，我是 <span class="text-accent">辰華昭昭</span></h2>
-            <p>
-              欢迎来到我的 LifeJourney 个人主页！我是一位热爱生活、喜欢旅行和摄影的创作者。
-              我创建这个平台是为了记录生活中的美好瞬间，分享我的成长历程和心得体会。
-            </p>
-            <p>
-              我相信每个人的生命都是一段独特的旅程，值得被记录和珍视。通过这个平台，
-              我希望能够连接更多志同道合的朋友，一起分享生活中的点滴感悟。
-            </p>
-          </div>
-        </div>
 
-        <!-- 留言板区域 - 优美段落摘抄 -->
-        <div class="quote-board" v-if="quotes.length > 0">
-          <h3 class="quote-board-title">随想随记</h3>
-          <div class="quote-cards">
-            <div 
-              v-for="(quote, index) in quotes" 
-              :key="index" 
-              class="quote-card"
-              :style="{ animationDelay: `${index * 0.2}s` }"
-            >
-              <div class="quote-content">
+          <!-- 兴趣爱好区域 -->
+          <div class="interests fade-in">
+            <h4 class="text-2xl font-bold mb-6">我的兴趣爱好</h4>
+            <div class="interest-cards">
+              <div class="interest-card">
+                <div class="interest-icon">📸</div>
+                <h5 class="text-lg font-semibold mb-2">摄影</h5>
+                <p class="text-gray-600">捕捉生活中的美好瞬间，记录身边的感动与风景</p>
+              </div>
+              <div class="interest-card">
+                <div class="interest-icon">✈️</div>
+                <h5 class="text-lg font-semibold mb-2">旅行</h5>
+                <p class="text-gray-600">探索世界各地的文化与风景，开阔视野与心灵</p>
+              </div>
+              <div class="interest-card">
+                <div class="interest-icon">📝</div>
+                <h5 class="text-lg font-semibold mb-2">写作</h5>
+                <p class="text-gray-600">用文字记录思考与感悟，分享生活的点滴体验</p>
+              </div>
+              <div class="interest-card">
+                <div class="interest-icon">🎨</div>
+                <h5 class="text-lg font-semibold mb-2">艺术</h5>
+                <p class="text-gray-600">欣赏与创作各种形式的艺术，丰富精神世界</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 随想随记区域 -->
+          <div class="quotes-section fade-in">
+            <h4 class="text-2xl font-bold mb-6">随想随记</h4>
+            <div class="quote-cards">
+              <div 
+                v-for="(quote, index) in quotes" 
+                :key="index" 
+                class="quote-card"
+                :style="{ animationDelay: `${index * 0.2}s` }"
+              >
                 <p class="quote-text">{{ quote.text }}</p>
                 <p class="quote-author">— {{ quote.author || '未知作者' }}</p>
               </div>
             </div>
           </div>
         </div>
-
       </div>
-      </section>
+    </section>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 
-// About component logic
-
-// 优美段落数据
+// 随想随记数据
 const quotes = ref([
   {
     text: "生活不是缺少美，而是缺少发现美的眼睛。在平凡的日子里，我们也能找到属于自己的小确幸。",
@@ -77,29 +106,184 @@ const quotes = ref([
 </script>
 
 <style scoped>
-/* 整体页面背景 - 以下是几个清新的设计方案，您可以选择其中一个取消注释使用 */
-.about {
-  /* 方案1: 清新蓝紫色渐变 */
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  
-  /* 方案2: 清新薄荷绿渐变 */
-  /* background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); */
-  
-  /* 方案3: 淡雅粉蓝色渐变 */
-  /* background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%); */
-  
-  /* 方案4: 清新橙色渐变 */
-  /* background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); */
-  
-  min-height: 100vh;
+/* 页面标题区域 */
+.page-header {
+  background: linear-gradient(135deg, #121212 0%, #2a2a2a 100%);
   color: white;
+  padding: 5rem 0 3rem;
+  text-align: center;
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+/* 关于区域 */
+.about-section {
+  padding: 1.5rem 0;
+  background-color: #e9ecef;
+}
+
+/* 个人资料卡片 */
+.about-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 5rem;
+  padding: 2rem;
+  background-color: #f0f2f5;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-bio {
+  text-align: center;
+  max-width: 600px;
 }
 
 /* 强调文本样式 */
-.text-accent {
-  color: #f9d423;
-  font-weight: 600;
-  text-shadow: 0 1px 5px rgba(249, 212, 35, 0.3);
+  .text-accent {
+    color: #FF5A5F;
+  }
+
+  /* 兴趣爱好样式 */
+  .interests {
+    margin-bottom: 5rem;
+  }
+
+  .interest-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .interest-card {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+  }
+
+  .interest-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .interest-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  /* 随想随记样式 */
+  .quotes-section {
+    margin-top: 3rem;
+  }
+
+  .quote-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .quote-card {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid #FF5A5F;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .quote-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .quote-text {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #444;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .quote-author {
+    text-align: right;
+    font-weight: 600;
+    color: #666;
+  }
+
+  /* 淡入动画 */
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* 响应式设计 */
+  @media (min-width: 768px) {
+    .about-profile {
+      flex-direction: row;
+      text-align: left;
+    }
+
+    .profile-bio {
+      text-align: left;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .page-title {
+      font-size: 2rem;
+    }
+
+    .interest-cards,
+    .quote-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .about-section {
+      padding: 3rem 0;
+    }
+
+    .page-header {
+      padding: 4rem 0 2rem;
+    }
+
+    .profile-image {
+      width: 150px;
+      height: 150px;
+    }
 }
 
 /* 容器样式 */
@@ -335,11 +519,10 @@ const quotes = ref([
   }
 
   .quote-card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 12px;
     padding: 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     opacity: 0;
     animation: slideIn 0.8s ease-out forwards;
@@ -352,7 +535,7 @@ const quotes = ref([
   .quote-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.9);
   }
 
   .quote-content {
@@ -364,7 +547,7 @@ const quotes = ref([
   .quote-text {
     font-size: 1.05rem;
     line-height: 1.6;
-    color: white;
+    color: #333;
     margin-bottom: 1rem;
     flex-grow: 1;
   }
@@ -372,7 +555,7 @@ const quotes = ref([
   .quote-author {
     font-style: italic;
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: #666;
     text-align: right;
   }
 

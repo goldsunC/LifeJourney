@@ -8,20 +8,20 @@
       </div>
       
       <div class="hero-content container">
-        <h1 class="hero-title">
+        <h1 class="hero-title fade-in">
           Sharing <br>
           bits of your <span class="text-accent">LifeJourney</span>
         </h1>
-        <p class="hero-subtitle max-w-2xl mx-auto">
+        <p class="hero-subtitle max-w-2xl mx-auto fade-in">
           A personal life journey recording and showcasing platform
         </p>
-        <div class="hero-buttons">
+        <div class="hero-buttons fade-in">
           <a href="#work" class="btn btn-primary">My LifeJourney</a>
           <router-link to="/about" class="btn btn-secondary">About Me</router-link>
         </div>
       </div>
       
-      <div class="absolute bottom-10 left-half transform-center translate-x-negative-half animate-bounce">
+      <div class="absolute bottom-10 left-half transform-center translate-x-negative-half animate-bounce fade-in">
         <a href="#about" aria-label="Scroll down">
           <span style="font-size: 2rem;">▼</span>
         </a>
@@ -32,7 +32,32 @@
 
 <script setup>
 import { RouterLink } from 'vue-router'
-// 可以在这里添加组件逻辑
+import { onMounted } from 'vue'
+
+// 添加滚动动画效果
+const addScrollAnimation = () => {
+  const fadeElements = document.querySelectorAll('.fade-in');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+  
+  fadeElements.forEach(el => {
+    observer.observe(el);
+  });
+}
+
+onMounted(() => {
+  // 添加动画效果
+  addScrollAnimation();
+});
 </script>
 
 <style scoped>
@@ -152,6 +177,30 @@ import { RouterLink } from 'vue-router'
   60% {
     transform: translateY(-10px);
   }
+}
+
+/* 淡入动画类 */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* 为不同元素设置不同的动画延迟 */
+.hero-title {
+  transition-delay: 0.2s;
+}
+
+.hero-subtitle {
+  transition-delay: 0.4s;
+}
+
+.hero-buttons {
+  transition-delay: 0.6s;
+}
+
+.animate-bounce {
+  transition-delay: 0.8s;
 }
 
 /* 响应式设计 */
