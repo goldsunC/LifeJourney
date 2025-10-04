@@ -35,10 +35,21 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const isMenuOpen = ref(false)
 const isDark = ref(false)
+
+// 定义emits
+const emit = defineEmits(['theme-change'])
+
+// 从localStorage加载主题状态
+onMounted(() => {
+  const savedTheme = localStorage.getItem('theme')
+  if (savedTheme) {
+    isDark.value = savedTheme === 'dark'
+  }
+})
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
@@ -50,7 +61,8 @@ const closeMenu = () => {
 
 const toggleTheme = () => {
   isDark.value = !isDark.value
-  // 这里可以添加主题切换逻辑
+  // 发出主题变更事件
+  emit('theme-change', isDark.value)
 }
 </script>
 
@@ -61,9 +73,10 @@ const toggleTheme = () => {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.95);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
 }
 
 .nav {
@@ -74,7 +87,7 @@ const toggleTheme = () => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 70px;
+  height: 85px;
 }
 
 .logo-link {
@@ -82,7 +95,7 @@ const toggleTheme = () => {
   align-items: center;
   gap: 12px;
   text-decoration: none;
-  color: #333;
+  color: white;
   font-weight: 700;
   font-size: 1.5rem;
 }
@@ -92,21 +105,19 @@ const toggleTheme = () => {
 }
 
 .logo-text {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: white;
 }
 
 .nav-menu {
   display: flex;
   align-items: center;
   gap: 32px;
+  margin-right: 20px;
 }
 
 .nav-link {
   text-decoration: none;
-  color: #666;
+  color: white;
   font-weight: 500;
   transition: all 0.3s ease;
   position: relative;
@@ -114,7 +125,7 @@ const toggleTheme = () => {
 
 .nav-link:hover,
 .nav-link.router-link-active {
-  color: #667eea;
+  color: white;
 }
 
 .nav-link.router-link-active::after {
@@ -149,7 +160,7 @@ const toggleTheme = () => {
 .menu-toggle span {
   width: 100%;
   height: 2px;
-  background: #333;
+  background: white;
   transition: all 0.3s ease;
   transform-origin: center;
 }
@@ -169,10 +180,10 @@ const toggleTheme = () => {
 @media (max-width: 768px) {
   .nav-menu {
     position: fixed;
-    top: 70px;
+    top: 85px;
     left: 0;
     right: 0;
-    background: white;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     flex-direction: column;
     padding: 20px;
     gap: 20px;
@@ -196,6 +207,19 @@ const toggleTheme = () => {
   .nav-actions .btn {
     padding: 8px 12px;
     font-size: 14px;
+  }
+  
+  /* Header specific button styles */
+  .nav-actions .btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .nav-actions .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
   }
 }
 </style>
