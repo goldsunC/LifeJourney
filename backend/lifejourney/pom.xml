@@ -107,6 +107,13 @@
             <version>8.6.0</version>
         </dependency>
 
+        <!-- OkHttp - MinIO客户端依赖 -->
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>4.12.0</version>
+        </dependency>
+
         <!-- Knife4j (Swagger) -->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
