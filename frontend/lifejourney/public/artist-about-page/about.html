@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Elena Mori | Contemporary Artist</title>
+  
+  <style>
+    /* 基础样式 - 与首页保持一致 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #121212; /* 深黑色作为主色调 */
+      background-color: #F8F8F8; /* 浅色背景 */
+      line-height: 1.6;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.3s ease;
+    }
+    
+    ul {
+      list-style: none;
+    }
+    
+    button {
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-family: inherit;
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .section {
+      padding: 6rem 0;
+    }
+    
+    .text-accent {
+      color: #D4AF37; /* 金色作为强调色 */
+    }
+    
+    .bg-primary {
+      background-color: #121212;
+    }
+    
+    .bg-white {
+      background-color: white;
+    }
+    
+    .bg-gray {
+      background-color: #f0f0f0;
+    }
+    
+    .text-white {
+      color: white;
+    }
+    
+    .text-sm {
+      font-size: 0.875rem;
+    }
+    
+    .text-lg {
+      font-size: 1.25rem;
+    }
+    
+    .text-xl {
+      font-size: 1.5rem;
+    }
+    
+    .text-2xl {
+      font-size: 2rem;
+    }
+    
+    .text-3xl {
+      font-size: 2.5rem;
+    }
+    
+    .text-4xl {
+      font-size: 3rem;
+    }
+    
+    .font-bold {
+      font-weight: 700;
+    }
+    
+    .font-black {
+      font-weight: 900;
+    }
+    
+    .uppercase {
+      text-transform: uppercase;
+    }
+    
+    .tracking-wider {
+      letter-spacing: 0.1em;
+    }
+    
+    .tracking-widest {
+      letter-spacing: 0.25em;
+    }
+    
+    .mb-1 {
+      margin-bottom: 0.25rem;
+    }
+    
+    .mb-2 {
+      margin-bottom: 0.5rem;
+    }
+    
+    .mb-3 {
+      margin-bottom: 0.75rem;
+    }
+    
+    .mb-4 {
+      margin-bottom: 1rem;
+    }
+    
+    .mb-6 {
+      margin-bottom: 1.5rem;
+    }
+    
+    .mb-8 {
+      margin-bottom: 2rem;
+    }
+    
+    .mb-12 {
+      margin-bottom: 3rem;
+    }
+    
+    .mt-2 {
+      margin-top: 0.5rem;
+    }
+    
+    .mt-4 {
+      margin-top: 1rem;
+    }
+    
+    .mt-8 {
+      margin-top: 2rem;
+    }
+    
+    .mt-12 {
+      margin-top: 3rem;
+    }
+    
+    .py-2 {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+    
+    .py-3 {
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+    }
+    
+    .py-6 {
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+    
+    .px-4 {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    .px-6 {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    
+    .px-8 {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+    
+    .flex {
+      display: flex;
+    }
+    
+    .flex-col {
+      flex-direction: column;
+    }
+    
+    .justify-center {
+      justify-content: center;
+    }
+    
+    .justify-between {
+      justify-content: space-between;
+    }
+    
+    .items-center {
+      align-items: center;
+    }
+    
+    .items-start {
+      align-items: flex-start;
+    }
+    
+    .space-x-4 > * + * {
+      margin-left: 1rem;
+    }
+    
+    .space-y-2 > * + * {
+      margin-top: 0.5rem;
+    }
+    
+    .space-y-4 > * + * {
+      margin-top: 1rem;
+    }
+    
+    .space-y-6 > * + * {
+      margin-top: 1.5rem;
+    }
+    
+    .space-y-8 > * + * {
+      margin-top: 2rem;
+    }
+    
+    .text-center {
+      text-align: center;
+    }
+    
+    .text-right {
+      text-align: right;
+    }
+    
+    .max-w-2xl {
+      max-width: 42rem;
+    }
+    
+    .max-w-3xl {
+      max-width: 54rem;
+    }
+    
+    .max-w-4xl {
+      max-width: 60rem;
+    }
+    
+    .mx-auto {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .inline-block {
+      display: inline-block;
+    }
+    
+    .block {
+      display: block;
+    }
+    
+    .w-full {
+      width: 100%;
+    }
+    
+    .h-full {
+      height: 100%;
+    }
+    
+    .relative {
+      position: relative;
+    }
+    
+    .absolute {
+      position: absolute;
+    }
+    
+    .inset-0 {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+    
+    .left-1/2 {
+      left: 50%;
+    }
+    
+    .top-full {
+      top: 100%;
+    }
+    
+    .transform {
+      transform: translate(-50%, -50%);
+    }
+    
+    .-translate-x-1/2 {
+      transform: translateX(-50%);
+    }
+    
+    .rounded-sm {
+      border-radius: 2px;
+    }
+    
+    .rounded-full {
+      border-radius: 50%;
+    }
+    
+    .shadow-sm {
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    
+    .shadow-md {
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .shadow-lg {
+      box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    }
+    
+    .object-cover {
+      object-fit: cover;
+    }
+    
+    .overflow-hidden {
+      overflow: hidden;
+    }
+    
+    .opacity-0 {
+      opacity: 0;
+    }
+    
+    .opacity-100 {
+      opacity: 1;
+    }
+    
+    .pointer-events-none {
+      pointer-events: none;
+    }
+    
+    .pointer-events-auto {
+      pointer-events: auto;
+    }
+    
+    /* 自定义样式 - 与首页保持一致 */
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary {
+      background-color: #D4AF37;
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background-color: #b89528;
+    }
+    
+    .btn-secondary {
+      background-color: transparent;
+      border: 1px solid white;
+      color: white;
+    }
+    
+    .btn-secondary:hover {
+      border-color: #D4AF37;
+      color: #D4AF37;
+    }
+    
+    .btn-outline {
+      border: 2px solid #121212;
+      color: #121212;
+    }
+    
+    .btn-outline:hover {
+      background-color: #121212;
+      color: white;
+    }
+    
+    /* 布局组件 */
+    .grid {
+      display: grid;
+      gap: 2rem;
+    }
+    
+    .col-1 {
+      grid-template-columns: 1fr;
+    }
+    
+    .col-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .col-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .col-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    
+    /* 动画效果 - 与首页保持一致 */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .hover-zoom {
+      transition: transform 0.5s ease;
+    }
+    
+    .hover-zoom:hover {
+      transform: scale(1.02);
+    }
+    
+    /* 导航栏样式 - 与首页保持一致 */
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.5rem 0;
+      z-index: 50;
+      transition: all 0.5s ease;
+    }
+    
+    #navbar.nav-scrolled {
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      padding: 1rem 0;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+    }
+    
+    .nav-links a {
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #D4AF37;
+    }
+    
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+    }
+    
+    #mobile-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 1.5rem 0;
+      transform: translateY(-20px);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+    
+    #mobile-menu.active {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    
+    #mobile-menu a {
+      display: block;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #f0f0f0;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      font-size: 0.875rem;
+    }
+    
+    #mobile-menu a:last-child {
+      border-bottom: none;
+    }
+    
+    #mobile-menu a.active {
+      color: #D4AF37;
+    }
+    
+    /* 页面标题区域 */
+    .page-header {
+      padding: 12rem 0 6rem;
+      background-color: #121212;
+      color: white;
+      position: relative;
+      text-align: center;
+    }
+    
+    .page-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+    }
+    
+    .page-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+    
+    .page-breadcrumbs {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .page-breadcrumbs a:hover {
+      color: #D4AF37;
+    }
+    
+    .page-breadcrumbs span:last-child {
+      color: #D4AF37;
+    }
+    
+    /* 艺术家详情页特有样式 */
+    .biography-section p {
+      margin-bottom: 1.5rem;
+    }
+    
+    .biography-section p:last-child {
+      margin-bottom: 0;
+    }
+    
+    .quote-block {
+      border-left: 3px solid #D4AF37;
+      padding-left: 1.5rem;
+      margin: 2.5rem 0;
+      font-style: italic;
+      color: #444;
+      font-size: 1.125rem;
+    }
+    
+    .artistic-philosophy {
+      background-color: #f8f8f8;
+      padding: 3rem;
+      margin: 3rem 0;
+      border-left: 4px solid #D4AF37;
+    }
+    
+    .timeline-section {
+      position: relative;
+      padding: 4rem 0;
+    }
+    
+    .career-timeline {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .career-timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      background-color: #e0e0e0;
+      transform: translateX(-50%);
+    }
+    
+    .timeline-entry {
+      padding: 1rem 0;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+    }
+    
+    .timeline-entry:nth-child(odd) {
+      left: 0;
+      padding-right: 4rem;
+      text-align: right;
+    }
+    
+    .timeline-entry:nth-child(even) {
+      left: 50%;
+      padding-left: 4rem;
+    }
+    
+    .timeline-dot {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #D4AF37;
+      border-radius: 50%;
+      top: 24px;
+      z-index: 1;
+    }
+    
+    .timeline-entry:nth-child(odd) .timeline-dot {
+      right: -10px;
+    }
+    
+    .timeline-entry:nth-child(even) .timeline-dot {
+      left: -10px;
+    }
+    
+    .timeline-year {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #D4AF37;
+      margin-bottom: 0.5rem;
+    }
+    
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .award-item {
+      background-color: white;
+      padding: 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .award-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .award-year {
+      font-size: 0.875rem;
+      color: #D4AF37;
+      margin-bottom: 0.5rem;
+    }
+    
+    .award-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .award-giver {
+      color: #666;
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+    }
+    
+    .studio-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .studio-image {
+      height: 300px;
+      overflow: hidden;
+      border-radius: 2px;
+    }
+    
+    .studio-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+    
+    .studio-image:hover img {
+      transform: scale(1.05);
+    }
+    
+    /* 页脚 - 与首页保持一致 */
+    footer {
+      background-color: #121212;
+      color: white;
+      padding: 3rem 0;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    @media (min-width: 768px) {
+      .footer-content {
+        grid-template-columns: 2fr 1fr 1fr;
+      }
+    }
+    
+    .footer-logo {
+      font-size: 1.5rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-text {
+      color: #aaa;
+      margin-bottom: 1.5rem;
+      max-width: 400px;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background-color: #222;
+      color: #aaa;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background-color: #D4AF37;
+      color: white;
+    }
+    
+    .footer-heading {
+      font-size: 1.125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .footer-links a {
+      color: #aaa;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: #D4AF37;
+    }
+    
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid #222;
+      text-align: center;
+      color: #666;
+      font-size: 0.875rem;
+    }
+    
+    /* 返回顶部按钮 - 与首页保持一致 */
+    #back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      background-color: #D4AF37;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 50;
+    }
+    
+    #back-to-top.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    /* 响应式设计 */
+    @media (max-width: 1024px) {
+      .grid.col-3 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .menu-toggle {
+        display: block;
+      }
+      
+      .grid.col-2,
+      .grid.col-3,
+      .grid.col-4 {
+        grid-template-columns: 1fr;
+      }
+      
+      .career-timeline::before {
+        left: 30px;
+      }
+      
+      .timeline-entry {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+        left: 0 !important;
+        text-align: left !important;
+      }
+      
+      .timeline-entry .timeline-dot {
+        left: 20px !important;
+        right: auto !important;
+      }
+      
+      .artistic-philosophy {
+        padding: 2rem 1.5rem;
+      }
+      
+      .page-header {
+        padding: 10rem 0 4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 导航栏 - 与首页保持一致 -->
+  <header id="navbar">
+    <div class="container">
+      <div class="flex justify-between items-center">
+        <a href="index.html" class="logo">
+          ELENA<span class="text-accent">MORI</span>
+        </a>
+        
+        <!-- 桌面端导航 -->
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="about.html" class="active">About</a>
+          <a href="index.html#work">Work</a>
+          <a href="index.html#exhibitions">Exhibitions</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
+        
+        <!-- 移动端菜单按钮 -->
+        <button id="menu-toggle" class="menu-toggle">
+          ☰
+        </button>
+      </div>
+      
+      <!-- 移动端导航菜单 -->
+      <div id="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="index.html#work">Work</a>
+        <a href="index.html#exhibitions">Exhibitions</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 页面标题区域 -->
+    <section class="page-header">
+      <div class="container">
+        <h1 class="page-title fade-in">About the Artist</h1>
+        <div class="page-breadcrumbs fade-in">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span>About</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 艺术家传记 -->
+    <section class="section bg-white">
+      <div class="container">
+        <div class="grid col-2 gap-12 items-center">
+          <div class="fade-in">
+            <img src="https://picsum.photos/id/64/800/1000" alt="Elena Mori portrait" class="w-full h-auto rounded-sm shadow-lg hover-zoom">
+          </div>
+          
+          <div class="biography-section fade-in">
+            <h2 class="text-sm uppercase tracking-widest text-accent mb-4">Biography</h2>
+            <h3 class="text-3xl font-bold mb-6">
+              The Journey of an <br>Visionary Artist
+            </h3>
+            
+            <p>
+              Elena Mori (b. 1985, Milan, Italy) is a contemporary visual artist whose work transcends traditional boundaries between mediums and disciplines. Her artistic practice spans painting, sculpture, digital media, and large-scale installations, all unified by a profound exploration of perception, memory, and the fluid nature of reality.
+            </p>
+            
+            <p>
+              Born into a family of architects and musicians, Mori was exposed to diverse creative influences from an early age. This multicultural background—her mother is Japanese-Italian, her father Spanish-French—instilled in her a unique perspective on cultural hybridity that would later become a central theme in her work.
+            </p>
+            
+            <p>
+              Mori's formal artistic training began at the Accademia di Belle Arti di Brera in Milan, where she studied traditional painting techniques before pursuing further education at the Royal College of Art in London, where she explored experimental media and installation art.
+            </p>
+            
+            <div class="quote-block">
+              "Art is not about reproducing what we see, but revealing what we cannot see—those hidden connections between the physical world and our internal landscapes."
+              <div class="mt-4 font-normal text-right text-gray-700">— Elena Mori</div>
+            </div>
+            
+            <p>
+              After graduating with distinction in 2009, Mori established her first studio in Berlin, a city whose vibrant art scene and historical complexity profoundly influenced her early development. It was during this period that she began merging traditional oil painting with digital projections, creating immersive environments that challenge viewers' perceptions of space and form.
+            </p>
+            
+            <p>
+              Today, based between New York and Tokyo, Mori continues to push artistic boundaries, incorporating emerging technologies such as augmented reality and interactive elements into her practice while maintaining a deep connection to classical artistic principles.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 艺术理念 -->
+    <section class="section bg-gray">
+      <div class="container">
+        <div class="max-w-3xl mx-auto text-center mb-12 fade-in">
+          <h2 class="text-sm uppercase tracking-widest text-accent mb-4">Artistic Vision</h2>
+          <h3 class="text-3xl font-bold mb-6">
+            Philosophy & Creative Process
+          </h3>
+        </div>
+        
+        <div class="max-w-4xl mx-auto fade-in">
+          <div class="artistic-philosophy">
+            <h4 class="text-2xl font-bold mb-4">The Nature of Perception</h4>
+            <p class="mb-4">
+              At the core of Mori's practice is an investigation into how our perceptions shape—and often distort—our understanding of reality. Her work consistently challenges viewers to question their assumptions about what is "real," exploring the space between objective experience and subjective interpretation.
+            </p>
+            <p>
+              "Reality is not fixed but fluid," Mori explains. "It exists in the tension between external stimuli and our internal filters—memories, cultural conditioning, emotional states. My art seeks to make that tension visible."
+            </p>
+          </div>
+          
+          <div class="mt-12 space-y-6">
+            <h4 class="text-2xl font-bold">Creative Methodology</h4>
+            
+            <p>
+              Mori's creative process is deeply research-driven, often beginning with extensive studies in neuroscience, psychology, and philosophy. She meticulously documents her findings in notebooks that serve as the conceptual foundation for her work.
+            </p>
+            
+            <p>
+              From these theoretical explorations, she develops physical sketches and digital models, iterating extensively before settling on a final direction. This rigorous approach ensures that each piece carries intellectual weight while maintaining strong visual impact.
+            </p>
+            
+            <p>
+              Materiality plays a crucial role in her practice. Mori often works with unconventional materials—industrial resins, conductive inks, light-reactive compounds—alongside traditional ones like oil paint and bronze. This juxtaposition of old and new reflects her interest in the dialogue between historical artistic traditions and contemporary technological advancements.
+            </p>
+          </div>
+          
+          <div class="mt-12 space-y-6">
+            <h4 class="text-2xl font-bold">Evolution of Style</h4>
+            
+            <p>
+              While Mori's early work focused primarily on painting, her style has evolved dramatically over the years. Her Berlin period (2009-2014) saw the introduction of digital elements and interactive components. Her move to New York in 2015 marked a shift toward larger-scale installations and site-specific works that engage with architectural space.
+            </p>
+            
+            <p>
+              More recently, her Tokyo studio has influenced a return to more minimalist aesthetics, with an emphasis on negative space and subtle tonal variations—a reflection of traditional Japanese artistic principles merged with her Western training.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 职业生涯时间线 -->
+    <section class="section bg-white timeline-section">
+      <div class="container">
+        <div class="max-w-3xl mx-auto text-center mb-16 fade-in">
+          <h2 class="text-sm uppercase tracking-widest text-accent mb-4">Professional Journey</h2>
+          <h3 class="text-3xl font-bold mb-6">
+            Career Timeline
+          </h3>
+          <p class="text-gray-700">
+            A chronological overview of key milestones in Elena Mori's artistic career.
+          </p>
+        </div>
+        
+        <div class="career-timeline">
+          <!-- 时间线条目1 -->
+          <div class="timeline-entry fade-in">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">1985</div>
+            <h4 class="text-xl font-bold mb-2">Born in Milan, Italy</h4>
+            <p class="text-gray-600">Raised in a multicultural family of artists and architects</p>
+          </div>
+          
+          <!-- 时间线条目2 -->
+          <div class="timeline-entry fade-in">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2004-2008</div>
+            <h4 class="text-xl font-bold mb-2">Accademia di Belle Arti di Brera</h4>
+            <p class="text-gray-600">Studied traditional painting and sculpture in Milan</p>
+          </div>
+          
+          <!-- 时间线条目3 -->
+          <div class="timeline-entry fade-in">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2008-2009</div>
+            <h4 class="text-xl font-bold mb-2">Royal College of Art, London</h4>
+            <p class="text-gray-600">MFA in Contemporary Art Practice, graduated with distinction</p>
+          </div>
+          
+          <!-- 时间线条目4 -->
+          <div class="timeline-entry fade-in">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2009</div>
+            <h4 class="text-xl font-bold mb-2">First Solo Exhibition</h4>
+            <p class="text-gray-600">"Emergence" at Gallery 1957, London</p>
+          </div>
+          
+          <!-- 时间线条目5 -->
+          <div class="timeline-entry fade-in">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2010-2014</div>
+            <h4 class="text-xl font-bold mb-2">Berlin Studio Residency</h4>
+            <p class="text-gray-600">Developed early mixed-media and digital works</p>
+          </div>
+          
+          <!-- 时间线条目6 -->
+          <div class="timeline-entry fade-in">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2015</div>
+            <h4 class="text-xl font-bold mb-2">Move to New York</h4>
+            <p class="text-gray-600">Established permanent studio in Brooklyn Arts District</p>
+          </div>
+          
+          <!-- 时间线条目7 -->
+          <div class="timeline-entry fade-in">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2017</div>
+            <h4 class="text-xl font-bold mb-2">Major Solo Exhibition</h4>
+            <p class="text-gray-600">"Perceptual Fields" at MoMA PS1, New York</p>
+          </div>
+          
+          <!-- 时间线条目8 -->
+          <div class="timeline-entry fade-in">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2019</div>
+            <h4 class="text-xl font-bold mb-2">Tokyo Studio Opening</h4>
+            <p class="text-gray-600">Established second studio in Tokyo's Art Triangle</p>
+          </div>
+          
+          <!-- 时间线条目9 -->
+          <div class="timeline-entry fade-in">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2021</div>
+            <h4 class="text-xl font-bold mb-2">International Recognition</h4>
+            <p class="text-gray-600">Awarded the prestigious International Art Prize for Digital Innovation</p>
+          </div>
+          
+          <!-- 时间线条目10 -->
+          <div class="timeline-entry fade-in">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2023-Present</div>
+            <h4 class="text-xl font-bold mb-2">Global Exhibitions</h4>
+            <p class="text-gray-600">Major retrospectives in London, Tokyo, and New York</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 奖项与荣誉 -->
+    <section class="section bg-gray">
+      <div class="container">
+        <div class="max-w-3xl mx-auto text-center mb-16 fade-in">
+          <h2 class="text-sm uppercase tracking-widest text-accent mb-4">Recognition</h2>
+          <h3 class="text-3xl font-bold mb-6">
+            Awards & Honors
+          </h3>
+          <p class="text-gray-700">
+            A selection of notable awards and recognitions received throughout Elena Mori's career.
+          </p>
+        </div>
+        
+        <div class="awards-grid">
+          <!-- 奖项1 -->
+          <div class="award-item fade-in">
+            <div class="award-year">2021</div>
+            <h4 class="award-title">International Art Prize</h4>
+            <p class="award-giver">Digital Art Innovation Foundation</p>
+            <p class="text-gray-600">For groundbreaking work in merging traditional painting with interactive digital elements.</p>
+          </div>
+          
+          <!-- 奖项2 -->
+          <div class="award-item fade-in">
+            <div class="award-year">2019</div>
+            <h4 class="award-title">New Media Art Award</h4>
+            <p class="award-giver">Tokyo Contemporary Art Museum</p>
+            <p class="text-gray-600">Recognizing exceptional innovation in the field of digital and new media art.</p>
+          </div>
+          
+          <!-- 奖项3 -->
+          <div class="award-item fade-in">
+            <div class="award-year">2017</div>
+            <h4 class="award-title">Emerging Artist Grant</h4>
+            <p class="award-giver">National Endowment for the Arts</p>
+            <p class="text-gray-600">Supporting the creation of large-scale installations exploring perceptual phenomena.</p>
+          </div>
+          
+          <!-- 奖项4 -->
+          <div class="award-item fade-in">
+            <div class="award-year">2015</div>
+            <h4 class="award-title">Young Talent Award</h4>
+            <p class="award-giver">International Contemporary Art Council</p>
+            <p class="text-gray-600">Honoring outstanding achievement by an artist under 35.</p>
+          </div>
+          
+          <!-- 奖项5 -->
+          <div class="award-item fade-in">
+            <div class="award-year">2013</div>
+            <h4 class="award-title">Berlin Art Prize</h4>
+            <p class="award-giver">Berlin Senate for Culture and Europe</p>
+            <p class="text-gray-600">For exceptional contribution to the city's contemporary art scene.</p>
+          </div>
+          
+          <!-- 奖项6 -->
+          <div class="award-item fade-in">
+            <div class="award-year">2009</div>
+            <h4 class="award-title"> RCA Graduation Prize</h4>
+            <p class="award-giver">Royal College of Art</p>
+            <p class="text-gray-600">Best thesis project exploring the intersection of traditional and digital media.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 工作室与创作环境 -->
+    <section class="section bg-white">
+      <div class="container">
+        <div class="max-w-3xl mx-auto text-center mb-16 fade-in">
+          <h2 class="text-sm uppercase tracking-widest text-accent mb-4">Creative Spaces</h2>
+          <h3 class="text-3xl font-bold mb-6">
+            Studios & Work Environment
+          </h3>
+          <p class="text-gray-700">
+            A glimpse into the spaces where Elena Mori's creative process unfolds.
+          </p>
+        </div>
+        
+        <div class="studio-gallery">
+          <div class="studio-image fade-in">
+            <img src="https://picsum.photos/id/42/800/600" alt="Elena Mori's New York studio space" class="w-full">
+          </div>
+          <div class="studio-image fade-in">
+            <img src="https://picsum.photos/id/28/800/600" alt="Painting area in Mori's studio" class="w-full">
+          </div>
+          <div class="studio-image fade-in">
+            <img src="https://picsum.photos/id/174/800/600" alt="Digital workspace with monitors and drawing tablet" class="w-full">
+          </div>
+          <div class="studio-image fade-in">
+            <img src="https://picsum.photos/id/163/800/600" alt="Tokyo studio with natural light" class="w-full">
+          </div>
+          <div class="studio-image fade-in">
+            <img src="https://picsum.photos/id/116/800/600" alt="Sculpture workshop and material storage" class="w-full">
+          </div>
+          <div class="studio-image fade-in">
+            <img src="https://picsum.photos/id/180/800/600" alt="Installation prototyping area" class="w-full">
+          </div>
+        </div>
+        
+        <div class="max-w-3xl mx-auto mt-12 text-center fade-in">
+          <p class="mb-6">
+            Elena maintains two primary studios—one in Brooklyn, New York and another in Tokyo's artistic district. Both spaces are designed to foster creativity through natural light, open layouts, and dedicated zones for different artistic processes.
+          </p>
+          <a href="index.html#contact" class="btn btn-outline">Inquire About Studio Visits</a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 引用与媒体报道 -->
+    <section class="section bg-primary text-white">
+      <div class="container">
+        <div class="max-w-3xl mx-auto text-center mb-16 fade-in">
+          <h2 class="text-sm uppercase tracking-widest text-accent mb-4">In The Press</h2>
+          <h3 class="text-3xl font-bold mb-6">
+            Reviews & Features
+          </h3>
+        </div>
+        
+        <div class="grid col-3 gap-8">
+          <!-- 媒体引用1 -->
+          <div class="fade-in">
+            <p class="italic mb-6">
+              "Mori's work represents a pivotal shift in contemporary art—bridging the gap between traditional fine art and cutting-edge technology without sacrificing emotional resonance or conceptual depth."
+            </p>
+            <div class="font-bold">ARTnews</div>
+            <div class="text-gray-400 text-sm">October 2022</div>
+          </div>
+          
+          <!-- 媒体引用2 -->
+          <div class="fade-in">
+            <p class="italic mb-6">
+              "Her installations create environments where viewers become active participants rather than passive observers, challenging us to reconsider our relationship with space and perception."
+            </p>
+            <div class="font-bold">The New York Times</div>
+            <div class="text-gray-400 text-sm">June 2021</div>
+          </div>
+          
+          <!-- 媒体引用3 -->
+          <div class="fade-in">
+            <p class="italic mb-6">
+              "Elena Mori's ability to merge Eastern and Western artistic traditions creates a visual language that speaks to our increasingly globalized yet fragmented world."
+            </p>
+            <div class="font-bold">Contemporary Art Review</div>
+            <div class="text-gray-400 text-sm">March 2020</div>
+          </div>
+        </div>
+        
+        <div class="text-center mt-12 fade-in">
+          <a href="#" class="btn btn-secondary">Download Press Kit</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 - 与首页保持一致 -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <div class="footer-logo">
+            ELENA<span class="text-accent">MORI</span>
+          </div>
+          <p class="footer-text">
+            Contemporary artist exploring the boundaries between reality and imagination through mixed media.
+          </p>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram">📷</a>
+            <a href="#" aria-label="Twitter">🐦</a>
+            <a href="#" aria-label="Facebook">📘</a>
+            <a href="#" aria-label="Pinterest">📌</a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="index.html#work">Portfolio</a>
+            <a href="index.html#exhibitions">Exhibitions</a>
+            <a href="index.html#contact">Contact</a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="footer-heading">Resources</h4>
+          <div class="footer-links">
+            <a href="#">Artist Statement</a>
+            <a href="#">Press Kit</a>
+            <a href="#">FAQs</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2023 Elena Mori. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 返回顶部按钮 - 与首页保持一致 -->
+  <button id="back-to-top" aria-label="Back to top">
+    <span style="font-size: 1.5rem;">▲</span>
+  </button>
+
+  <!-- JavaScript - 与首页保持一致的交互功能 -->
+  <script>
+    // 移动端菜单切换
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+      menuToggle.innerHTML = mobileMenu.classList.contains('active') ? '✕' : '☰';
+    });
+    
+    // 导航栏滚动效果
+    const navbar = document.getElementById('navbar');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('nav-scrolled');
+      } else {
+        navbar.classList.remove('nav-scrolled');
+      }
+    });
+    
+    // 返回顶部按钮
+    const backToTopButton = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) {
+        backToTopButton.classList.add('visible');
+      } else {
+        backToTopButton.classList.remove('visible');
+      }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // 滚动时的渐入动画
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    const fadeInObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          fadeInObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+    
+    fadeElements.forEach(element => {
+      fadeInObserver.observe(element);
+    });
+  </script>
+</body>
+</html>
