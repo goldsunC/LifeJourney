@@ -59,6 +59,7 @@ Authorization: Bearer <your_jwt_token>
             "message": "邮箱格式不正确"
         }
     },
+    "message": "请求参数验证失败",
     "timestamp": "2025-10-01T10:00:00Z"
 }
 ```
@@ -107,7 +108,8 @@ POST /auth/register
             "refreshToken": "refresh_token"
         }
     },
-    "message": "注册成功"
+    "message": "注册成功",
+    "timestamp": "2025-10-01T10:00:00Z"
 }
 ```
 
@@ -140,7 +142,8 @@ POST /auth/login
             "refreshToken": "refresh_token"
         }
     },
-    "message": "登录成功"
+    "message": "登录成功",
+    "timestamp": "2025-10-01T10:00:00Z"
 }
 ```
 
@@ -174,7 +177,9 @@ GET /auth/profile
         "bio": "这是我的个人简介",
         "createdAt": "2025-10-01T10:00:00Z",
         "updatedAt": "2025-10-01T10:00:00Z"
-    }
+    },
+    "message": "获取用户信息成功",
+    "timestamp": "2025-10-01T10:00:00Z"
 }
 ```
 
@@ -234,7 +239,9 @@ GET /timeline/events
         "size": 20,
         "total": 50,
         "totalPages": 3
-    }
+    },
+    "message": "获取时间线事件列表成功",
+    "timestamp": "2025-10-01T10:00:00Z"
 }
 ```
 
@@ -257,7 +264,6 @@ POST /timeline/events
         "company": "Tech Corp",
         "position": "软件工程师",
         "location": "上海"
-    }
 }
 ```
 
@@ -306,7 +312,9 @@ GET /timeline/events/stats
                 "eventDate": "2025-10-01"
             }
         ]
-    }
+    },
+    "message": "获取时间线统计成功",
+    "timestamp": "2025-10-01T10:00:00Z"
 }
 ```
 
@@ -348,7 +356,9 @@ GET /articles
         "size": 20,
         "total": 25,
         "totalPages": 2
-    }
+    },
+    "message": "获取文章列表成功",
+    "timestamp": "2025-10-01T10:00:00Z"
 }
 ```
 
@@ -390,7 +400,9 @@ GET /articles/{slug}
         "createdAt": "2025-10-01T10:00:00Z",
         "updatedAt": "2025-10-01T10:00:00Z",
         "publishedAt": "2025-10-01T10:00:00Z"
-    }
+    },
+    "message": "获取文章详情成功",
+    "timestamp": "2025-10-01T10:00:00Z"
 }
 ```
 
@@ -515,7 +527,9 @@ GET /photos
         "size": 20,
         "total": 100,
         "totalPages": 5
-    }
+    },
+    "message": "获取照片列表成功",
+    "timestamp": "2025-10-01T10:00:00Z"
 }
 ```
 
@@ -540,7 +554,8 @@ POST /photos/upload
         "filePath": "/photos/2025/10/photo_001.jpg",
         "url": "https://minio.lifejourney.com/photos/2025/10/photo_001.jpg"
     },
-    "message": "照片上传成功"
+    "message": "照片上传成功",
+    "timestamp": "2025-10-01T10:00:00Z"
 }
 ```
 
@@ -604,7 +619,9 @@ GET /goals
         "size": 20,
         "total": 15,
         "totalPages": 1
-    }
+    },
+    "message": "获取目标列表成功",
+    "timestamp": "2025-10-01T10:00:00Z"
 }
 ```
 
@@ -671,7 +688,9 @@ GET /tags
             "usageCount": 15,
             "createdAt": "2025-10-01T10:00:00Z"
         }
-    ]
+    ],
+    "message": "获取标签列表成功",
+    "timestamp": "2025-10-01T10:00:00Z"
 }
 ```
 
@@ -728,7 +747,9 @@ GET /dashboard/stats
             "activeGoals": 8,
             "completedGoals": 7
         }
-    }
+    },
+    "message": "获取仪表板数据成功",
+    "timestamp": "2025-10-01T10:00:00Z"
 }
 ```
 
@@ -774,7 +795,9 @@ GET /search
         "size": 20,
         "total": 2,
         "totalPages": 1
-    }
+    },
+    "message": "全局搜索成功",
+    "timestamp": "2025-10-01T10:00:00Z"
 }
 ```
 
