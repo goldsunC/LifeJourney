@@ -62,6 +62,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                         authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
                         SecurityContextHolder.getContext().setAuthentication(authentication);
+                        // 设置username属性到请求中，供后续控制器使用
+                        request.setAttribute("username", username);
                         logger.debug("Successfully authenticated user from Redis: {}", username);
                     }
                 } else {
@@ -79,6 +81,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                         authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
                         SecurityContextHolder.getContext().setAuthentication(authentication);
+                        // 设置username属性到请求中，供后续控制器使用
+                        request.setAttribute("username", username);
                         logger.debug("Successfully authenticated user from JWT validation: {}", username);
                     }
                 }

@@ -27,6 +27,7 @@ public enum ErrorEnum {
     PASSWORD_ERROR("200004", "密码错误"),
     INVALID_TOKEN("200005", "无效的令牌"),
     TOKEN_EXPIRED("200006", "令牌已过期"),
+    USER_UPDATE_FAIL("200007", "用户信息更新失败"),
     
     // 认证相关错误
     USERNAME_ALREADY_EXISTS("200101", "用户名已存在"),

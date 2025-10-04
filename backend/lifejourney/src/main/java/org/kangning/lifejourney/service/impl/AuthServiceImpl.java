@@ -101,6 +101,9 @@ public class AuthServiceImpl implements AuthService {
                 throw new BusinessException(ErrorEnum.USER_NOT_FOUND);
             }
 
+            // 删除用户现有的所有Token，确保一个用户同一时间只有一个有效的Token
+            jwtUtils.deleteUserTokensFromRedis(user.getUsername());
+
             logger.info("用户登录成功: {}", loginRequest.getUsername());
 
             // 生成Token
