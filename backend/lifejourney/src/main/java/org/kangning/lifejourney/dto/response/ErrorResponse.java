@@ -1,5 +1,6 @@
 package org.kangning.lifejourney.dto.response;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,18 +15,18 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ErrorResponse implements Serializable {
-    
+@Schema(description = "错误响应信息")
+public class ErrorResponse implements Serializable {    
     @Serial
     private static final long serialVersionUID = 1L;
     
-    // 错误码
+    @Schema(description = "错误代码", example = "40001")
     private String code;
     
-    // 错误消息
+    @Schema(description = "错误描述消息", example = "用户名或密码错误")
     private String message;
     
-    // 错误详情（可选）
+    @Schema(description = "错误详细信息")
     private Object details;
     
     /**

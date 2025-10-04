@@ -1,5 +1,6 @@
 package org.kangning.lifejourney.dto.response;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,28 +18,29 @@ import java.time.format.DateTimeFormatter;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Schema(description = "通用响应对象")
 public class CommonResponse<T> implements Serializable {
     
     @Serial
     private static final long serialVersionUID = 1L;
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
     
-    // 操作是否成功
+    @Schema(description = "操作是否成功", example = "true")
     private boolean success;
     
-    // 响应数据（成功时使用）
+    @Schema(description = "响应数据")
     private T data;
     
-    // 错误信息（失败时使用）
+    @Schema(description = "错误信息")
     private ErrorResponse error;
     
-    // 响应消息
+    @Schema(description = "响应消息", example = "操作成功")
     private String message;
     
-    // 时间戳
+    @Schema(description = "响应时间戳", example = "2023-01-01T12:00:00")
     private String timestamp;
     
-    // 分页信息（可选）
+    @Schema(description = "分页信息")
     private Pagination pagination;
     
     /**

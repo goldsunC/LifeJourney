@@ -1,5 +1,8 @@
 package org.kangning.lifejourney.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.kangning.lifejourney.dto.request.LoginRequest;
 import org.kangning.lifejourney.dto.request.RegisterRequest;
 import org.kangning.lifejourney.dto.request.RefreshTokenRequest;
@@ -23,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
  * 认证控制器
  * 处理用户注册、登录和刷新Token的HTTP请求
  */
+@Tag(name = "认证管理", description = "用户注册、登录、刷新Token和登出接口")
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
@@ -38,8 +42,11 @@ public class AuthController {
     /**
      * 用户注册接口
      */
+    @Operation(summary = "用户注册", description = "创建新用户账号，返回访问Token和刷新Token")
     @PostMapping("/register")
-    public ResponseEntity<CommonResponse<AuthResponse>> register(@Validated @RequestBody RegisterRequest registerRequest) {
+    public ResponseEntity<CommonResponse<AuthResponse>> register(
+            @Parameter(description = "注册请求参数", required = true)
+            @Validated @RequestBody RegisterRequest registerRequest) {
         logger.info("用户注册请求: {}", registerRequest.getUsername());
 
         // 调用服务层进行注册
@@ -52,8 +59,11 @@ public class AuthController {
     /**
      * 用户登录接口
      */
+    @Operation(summary = "用户登录", description = "验证用户凭据，返回访问Token和刷新Token")
     @PostMapping("/login")
-    public ResponseEntity<CommonResponse<AuthResponse>> login(@Validated @RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<CommonResponse<AuthResponse>> login(
+            @Parameter(description = "登录请求参数", required = true)
+            @Validated @RequestBody LoginRequest loginRequest) {
         logger.info("用户登录请求: {}", loginRequest.getUsername());
 
         // 调用服务层进行登录
@@ -66,8 +76,11 @@ public class AuthController {
     /**
      * 刷新Token接口
      */
+    @Operation(summary = "刷新Token", description = "使用刷新Token获取新的访问Token")
     @PostMapping("/refresh")
-    public ResponseEntity<CommonResponse<AuthResponse>> refreshToken(@Validated @RequestBody RefreshTokenRequest refreshTokenRequest) {
+    public ResponseEntity<CommonResponse<AuthResponse>> refreshToken(
+            @Parameter(description = "刷新Token请求参数", required = true)
+            @Validated @RequestBody RefreshTokenRequest refreshTokenRequest) {
         logger.info("刷新Token请求");
 
         // 调用服务层刷新Token
@@ -80,6 +93,7 @@ public class AuthController {
     /**
      * 用户登出接口
      */
+    @Operation(summary = "用户登出", description = "清除用户认证状态，使Token失效")
     @PostMapping("/logout")
     public ResponseEntity<CommonResponse<String>> logout() {
         try {

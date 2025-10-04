@@ -78,8 +78,10 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                     // 允许访问公开API - 注意：由于server.servlet.context-path设置为/api，所以Spring Security看到的路径没有/api前缀
                     .requestMatchers("/auth/**").permitAll()
-                    // 允许访问Swagger文档
-                    .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-resources/**").permitAll()
+                    // 允许访问Swagger和Knife4j文档 - 配置所有可能的OpenAPI相关路径
+                    .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-resources/**", "/doc.html", "/webjars/**", "/favicon.ico").permitAll()
+                    // 确保在使用server.servlet.context-path时也能正确访问
+                    .requestMatchers("/api/v3/api-docs/**", "/api/swagger-ui/**", "/api/doc.html").permitAll()
                     // 允许健康检查
                     .requestMatchers("/health").permitAll()
                     // 所有其他请求需要认证

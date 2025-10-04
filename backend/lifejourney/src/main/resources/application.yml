@@ -79,6 +79,9 @@ logging:
   level:
     org.kangning.lifejourney: debug
     org.springframework.security: debug
+    io.swagger: trace
+    com.github.xiaoymin: trace
+    springfox: trace
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
 
@@ -102,3 +105,20 @@ minio:
   # 访问密钥从application-private.yml加载
   # 密钥从application-private.yml加载
   bucket-name: lifejourney
+
+# Knife4j (Swagger) 配置
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn  # 中文界面
+    swagger-model-name: 数据模型
+    # 显示请求参数中的Authorization等头部信息
+    enable-request-header: true
+    enable-after-operation: true
+  # 增强配置
+  cors: true  # 启用跨域
+
+# SpringDoc 配置 - 解决Spring Boot 3.5.6与Knife4j的兼容性问题
+springdoc:
+  override-with-generic-response: false
+  production: false  # 非生产环境
