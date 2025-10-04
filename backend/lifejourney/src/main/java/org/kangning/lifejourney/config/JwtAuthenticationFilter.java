@@ -1,6 +1,7 @@
 package org.kangning.lifejourney.config;
 
 import com.auth0.jwt.exceptions.TokenExpiredException;
+import org.jetbrains.annotations.NotNull;
 import org.kangning.lifejourney.util.JwtUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,7 +39,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     }
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+    protected void doFilterInternal(@NotNull HttpServletRequest request, @NotNull HttpServletResponse response, @NotNull FilterChain filterChain)
             throws ServletException, IOException {
         try {
             // 从请求头中获取JWT Token
