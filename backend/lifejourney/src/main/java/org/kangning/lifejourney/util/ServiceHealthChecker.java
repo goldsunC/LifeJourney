@@ -25,6 +25,7 @@ import java.time.format.DateTimeFormatter;
  * 服务健康检查器
  * 整合MySQL、Redis和MinIO连接测试功能
  * 在应用启动时自动运行，检查各服务是否正常连接
+ * 通过配置参数 service-health-check.enabled 控制是否运行
  */
 @Component
 public class ServiceHealthChecker implements CommandLineRunner {
@@ -44,20 +45,29 @@ public class ServiceHealthChecker implements CommandLineRunner {
     @Value("${minio.bucket-name}")
     private String minioBucketName;
 
+    // 控制是否启用服务健康检查的配置参数
+    @Value("${service-health-check.enabled:false}")
+    private boolean healthCheckEnabled;
+
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("===== 开始服务健康检查 =====");
-        
-        // 测试MySQL数据库连接
-        testDatabaseConnection();
-        
-        // 测试Redis连接
-        testRedisConnection();
-        
-        // 测试MinIO连接
-        testMinioConnection();
-        
-        System.out.println("===== 服务健康检查完成 =====");
+        if (healthCheckEnabled) {
+            System.out.println("===== 开始服务健康检查 =====");
+            
+            // 测试MySQL数据库连接
+            testDatabaseConnection();
+            
+            // 测试Redis连接
+            testRedisConnection();
+            
+            // 测试MinIO连接
+            testMinioConnection();
+            
+            System.out.println("===== 服务健康检查完成 =====");
+        } else {
+            System.out.println("服务健康检查已禁用 (配置: service-health-check.enabled=false)");
+            System.out.println("如需启用健康检查，请在配置文件中将 service-health-check.enabled 设置为 yes");
+        }
     }
 
     /**

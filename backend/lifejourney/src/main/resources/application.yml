@@ -6,6 +6,12 @@ spring:
     active: dev
     include: private  # 包含隐私配置文件
   
+# 服务健康检查配置
+# 设置为 yes 启用服务健康检查，设置为 no 禁用
+# 默认值：false（禁用）
+service-health-check:
+  enabled: false
+  
   # 数据库配置
   datasource:
     url: jdbc:mysql://${servers.address}:3306/lifejourney?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
