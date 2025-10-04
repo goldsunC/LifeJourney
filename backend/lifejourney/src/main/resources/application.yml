@@ -6,12 +6,6 @@ spring:
     active: dev
     include: private  # 包含隐私配置文件
   
-# 服务健康检查配置
-# 设置为 yes 启用服务健康检查，设置为 no 禁用
-# 默认值：false（禁用）
-service-health-check:
-  enabled: false
-  
   # 数据库配置
   datasource:
     url: jdbc:mysql://${servers.address}:3306/lifejourney?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
@@ -22,7 +16,7 @@ service-health-check:
   # JPA配置
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
     show-sql: false
     properties:
       hibernate:
@@ -43,6 +37,19 @@ service-health-check:
           max-wait: -1ms
           max-idle: 8
           min-idle: 0
+  
+  # 数据库初始化配置
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:db/migration/schema.sql
+      continue-on-error: true
+
+# 服务健康检查配置
+# 设置为 yes 启用服务健康检查，设置为 no 禁用
+# 默认值：false（禁用）
+service-health-check:
+  enabled: false
 
 # MyBatis-Plus配置
 mybatis-plus:
@@ -55,7 +62,11 @@ mybatis-plus:
       logic-delete-field: deleted
       logic-delete-value: 1
       logic-not-delete-value: 0
+      # 禁用MyBatis-Plus的自动表创建和检查
+      table-underline: true
   mapper-locations: classpath*:mapper/*.xml
+  # 配置MyBatis-Plus实体扫描路径
+  type-aliases-package: org.kangning.lifejourney.entity
 
 # 服务器配置
 server:
