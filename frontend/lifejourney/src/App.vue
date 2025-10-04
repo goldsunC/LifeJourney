@@ -5,7 +5,7 @@
     
     <!-- 主内容区域 -->
     <main>
-      <Home />
+      <router-view />
     </main>
     
     <!-- 底部组件 -->
@@ -16,7 +16,6 @@
 <script setup>
 import Header from './components/Header.vue'
 import Footer from './components/Footer.vue'
-import Home from './views/Home.vue'
 </script>
 
 <style>
@@ -56,15 +55,7 @@ a {
   transition: color 0.3s ease;
 }
 
-/* 确保Header组件在顶部固定且背景透明 */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background-color: transparent;
-}
+/* Header组件样式由组件自身管理 */
 
 /* 移除主内容区的顶部边距，让hero区域能够延伸到header下方 */
 main {

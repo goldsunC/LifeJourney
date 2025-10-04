@@ -41,7 +41,7 @@
       </div>
       
       <div class="footer-bottom">
-        <p>&copy; 2023 Elena Mori. All rights reserved.</p>
+        <p>&copy; 2025 辰華昭昭. All rights reserved.</p>
       </div>
     </div>
   </footer>

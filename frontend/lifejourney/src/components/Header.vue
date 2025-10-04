@@ -2,17 +2,17 @@
   <header id="navbar">
     <div class="container">
       <div class="flex justify-between items-center">
-        <a href="#home" class="logo">
+        <router-link to="/" class="logo">
           LIFE<span class="text-accent">JOURNEY</span>
-        </a>
+        </router-link>
         
         <!-- 桌面端导航 -->
         <nav class="nav-links">
-          <a href="#HOME">HOME</a>
-          <a href="#TIMELINE">TIMELINE</a>
-          <a href="#PHOTOALBUM">PHOTOALBUM</a>
-          <a href="#WISHLIST">WISHLIST</a>
-          <a href="#ABOUT">ABOUT</a>
+          <router-link to="/" class="nav-link">HOME</router-link>
+          <a href="#TIMELINE" class="nav-link">TIMELINE</a>
+          <a href="#PHOTOALBUM" class="nav-link">PHOTOALBUM</a>
+          <a href="#WISHLIST" class="nav-link">WISHLIST</a>
+          <router-link to="/about" class="nav-link">ABOUT</router-link>
         </nav>
         
         <!-- 移动端菜单按钮 -->
@@ -23,11 +23,11 @@
       
       <!-- 移动端导航菜单 -->
       <div id="mobile-menu">
-        <a href="#HOME">HOME</a>
-        <a href="#TIMELINE">TIMELINE</a>
-        <a href="#PHOTOALBUM">PHOTOALBUM</a>
-        <a href="#WISHLIST">WISHLIST</a>
-        <a href="#ABOUT">ABOUT</a>
+        <router-link to="/" class="nav-link">HOME</router-link>
+        <a href="#TIMELINE" class="nav-link">TIMELINE</a>
+        <a href="#PHOTOALBUM" class="nav-link">PHOTOALBUM</a>
+        <a href="#WISHLIST" class="nav-link">WISHLIST</a>
+        <router-link to="/about" class="nav-link">ABOUT</router-link>
       </div>
     </div>
   </header>
@@ -35,6 +35,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
+import { RouterLink } from 'vue-router'
 
 const isMenuOpen = ref(false)
 
@@ -104,7 +105,7 @@ onMounted(() => {
   gap: 2.5rem;
 }
 
-.nav-links a {
+.nav-link {
   text-transform: uppercase;
   letter-spacing: 0.25em;
   font-size: 0.875rem;
@@ -114,11 +115,11 @@ onMounted(() => {
   transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
-  color: #D4AF37;
+.nav-link:hover {
+  color: #FF5A5F;
 }
 
-#navbar.nav-scrolled .nav-links a {
+#navbar.nav-scrolled .nav-link {
   color: #121212;
 }
 
@@ -155,7 +156,7 @@ onMounted(() => {
   pointer-events: auto;
 }
 
-#mobile-menu a {
+#mobile-menu .nav-link {
   display: block;
   padding: 0.75rem 0;
   border-bottom: 1px solid #f0f0f0;
@@ -167,11 +168,11 @@ onMounted(() => {
   transition: color 0.3s ease;
 }
 
-#mobile-menu a:hover {
-  color: #D4AF37;
+#mobile-menu .nav-link:hover {
+  color: #FF5A5F;
 }
 
-#mobile-menu a:last-child {
+#mobile-menu .nav-link:last-child {
   border-bottom: none;
 }
 
@@ -206,6 +207,6 @@ onMounted(() => {
 }
 
 .text-accent {
-  color: #D4AF37; /* 金色作为强调色 */
+  color: #FF5A5F; /* 与Home.vue保持一致的强调色 */
 }
 </style>

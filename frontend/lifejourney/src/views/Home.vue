@@ -17,7 +17,7 @@
         </p>
         <div class="hero-buttons">
           <a href="#work" class="btn btn-primary">My LifeJourney</a>
-          <a href="#about" class="btn btn-secondary">About Me</a>
+          <router-link to="/about" class="btn btn-secondary">About Me</router-link>
         </div>
       </div>
       
@@ -31,6 +31,7 @@
 </template>
 
 <script setup>
+import { RouterLink } from 'vue-router'
 // 可以在这里添加组件逻辑
 </script>
 
