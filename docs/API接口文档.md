@@ -7,7 +7,7 @@
 - **基础URL**: `https://api.lifejourney.com/v1`
 - **文档类型**: API接口文档
 - **更新日期**: 2025年10月
-- **后端框架**: Spring Boot 3.2+ (Java 21)
+- **后端框架**: Spring Boot 3.5.6 (Java 21)
 - **数据库**: MySQL 8.0
 
 ## 🔐 认证说明
@@ -886,6 +886,6 @@ curl -X POST https://api.lifejourney.com/v1/articles \
 - 完整的RESTful API设计
 - JWT认证机制
 - 分页和搜索功能
-- Spring Boot 3.2+ (Java 21) 后端支持
+- Spring Boot 3.5.6 (Java 21) 后端支持
 - MySQL 8.0 数据库支持
 - MinIO 对象存储支持

@@ -146,7 +146,7 @@ LifeJourney/
 - **Pinia**: 轻量级状态管理
 
 ### 后端技术
-- **Spring Boot 3.2+**: 企业级Java框架
+- **Spring Boot 3.5.6**: 企业级Java框架
 - **Java 21**: 最新LTS版本
 - **Spring Security**: 安全框架
 - **MyBatis-Plus**: 增强的ORM框架

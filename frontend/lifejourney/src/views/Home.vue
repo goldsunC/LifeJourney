@@ -3,7 +3,7 @@
     <!-- 英雄区 -->
     <section id="home">
       <div class="hero-bg">
-        <img src="http://120.26.34.235:9000/lifejourney/2025/10/ab313ee3-8b1c-4aaa-8ae9-30b670ccdb98.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=kangning666%2F20251004%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251004T181852Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=c256cd10823c99926e40d0b83f92a287d576a181a38680f53949433c3523a9af" alt="Elena Mori's artwork">
+        <img src="http://120.26.34.235:9000/lifejourney/2025/10/b233aea6-082d-4d40-8e9d-f5aba3d2be00.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=kangning666%2F20251004%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251004T201000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=409d86c1fa3a6bb05266677bd3d957aa56c5873825a293c188d75e524c37e8ca" alt="Elena Mori's artwork">
         <div class="hero-overlay"></div>
       </div>
       
